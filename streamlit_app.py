@@ -42,7 +42,3 @@ if st.session_state.messages:
     for message in st.session_state.messages:
         role = "You" if message["role"] == "user" else "Assistant"
         st.write(f"**{role}:** {message['content']}")
-if st.session_state.messages:
-    for message in st.session_state.messages:
-        role = "You" if message["role"] == "user" else "Assistant"
-        st.write(f"**{role}:** {message['content']}")
