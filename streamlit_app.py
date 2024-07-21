@@ -7,14 +7,14 @@ import streamlit as st
 # )
 
 st.subheader("📨 Contact Me")
-        email = info["Email"]
-        contact_form = f"""
-        <form action="<https://formsubmit.co/{email}>" method="POST">
-            <input type="hidden" name="_captcha value="false">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-            <textarea name="message" placeholder="Your message here" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+email = info["Email"]
+contact_form = f"""
+ <form action="<https://formsubmit.co/{email}>" method="POST">
+         <input type="hidden" name="_captcha value="false">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message here" required></textarea>
+        <button type="submit">Send</button>
+</form>
         """
-        st.markdown(contact_form, unsafe_allow_html=True)
+st.markdown(contact_form, unsafe_allow_html=True)
