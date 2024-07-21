@@ -17,7 +17,6 @@ def local_css(file_name):
 local_css("style/style.css")
 
 st.subheader("📨 Contact Me")
-email = info["Email"]
 contact_form = f"""
         <form action="https://formsubmit.co/{info["Email"]}" method="POST">
             <input type="hidden" name="_captcha value="false">
