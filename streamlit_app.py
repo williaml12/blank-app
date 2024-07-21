@@ -18,7 +18,16 @@ local_css("style/style.css")
 
 
 st.subheader("📨 Contact Me")
+
 import streamlit as st
+
+# Function to load local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# Load CSS
+local_css("style/style.css")
 
 # HTML form with spinner
 contact_form = """
