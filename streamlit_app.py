@@ -16,7 +16,7 @@ def local_css(file_name):
 # Apply local CSS styles from the "style.css" file
 local_css("style/style.css")
 
-st.subheader("📨 Contact Me")
+ st.subheader("📨 Contact Me")
         contact_form = f"""
         <form action="https://formsubmit.co/{info["Email"]}" method="POST">
             <input type="hidden" name="_captcha value="false">
@@ -26,4 +26,4 @@ st.subheader("📨 Contact Me")
             <button type="submit">Send</button>
         </form>
         """
-st.markdown(contact_form, unsafe_allow_html=True)
+        st.markdown(contact_form, unsafe_allow_html=True)
