@@ -8,6 +8,14 @@
 
 import streamlit as st
 
+def local_css(file_name):
+  with open(file_name) as f:
+      st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
+# Apply local CSS styles from the "style.css" file
+local_css("style/style.css")
+
 # HTML form with CSS for the spinner
 contact_form = """
 <form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" id="contactForm" onsubmit="showSpinner()">
