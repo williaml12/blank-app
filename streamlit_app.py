@@ -18,6 +18,8 @@ def local_css(file_name):
 local_css("style/style.css")
 
 st.subheader("📨 Contact Me")
+import streamlit as st
+
 # HTML form with spinner
 contact_form = """
 <form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" id="contactForm" onsubmit="showSpinner()">
@@ -35,4 +37,6 @@ contact_form = """
   }
 </script>
 """
+
+# Display the form
 st.markdown(contact_form, unsafe_allow_html=True)
