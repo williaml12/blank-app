@@ -1,4 +1,4 @@
-# import streamlit as st
+import streamlit as st
 # import openai
 
 # st.title("🎈 My new app")
@@ -6,7 +6,7 @@
 #     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 # )
 
- st.subheader("📨 Contact Me")
+st.subheader("📨 Contact Me")
         email = info["Email"]
         contact_form = f"""
         <form action="<https://formsubmit.co/{email}>" method="POST">
