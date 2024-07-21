@@ -14,19 +14,6 @@ def submit_form():
     with st.spinner('Submitting...'):
         time.sleep(2)  # Simulate a delay for form submission
     st.success('Form submitted successfully!')
-
-# Create a form in Streamlit
-with st.form(key='contact_form'):
-    name = st.text_input('Your name')
-    email = st.text_input('Your email')
-    message = st.text_area('Your message')
-    submit_button = st.form_submit_button(label='Send')
-
-# Handle form submission
-if submit_button:
-    submit_form()
-
-
 # HTML form with CSS for the spinner
 contact_form = """
 <form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" id="contactForm">
@@ -52,6 +39,18 @@ contact_form = """
   });
 </script>
 """
+
+# Create a form in Streamlit
+with st.form(key='contact_form'):
+    name = st.text_input('Your name')
+    email = st.text_input('Your email')
+    message = st.text_area('Your message')
+    submit_button = st.form_submit_button(label='Send')
+
+# Handle form submission
+if submit_button:
+    submit_form()
+
 
 # Display the form
 st.markdown(contact_form, unsafe_allow_html=True)
