@@ -7,38 +7,23 @@
 # )
 
 import streamlit as st
-import openai
 
-# Set your OpenAI API key
-api_key = st.secrets["OPENAI_API_KEY"]
-openai.api_key = api_key
+# HTML form
+contact_form = """
+<form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" onsubmit="showSpinner()">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="text" name="name" placeholder="Your name" required>
+  <input type="email" name="email" placeholder="Your email" required>
+  <textarea name="message" placeholder="Your message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+<div id="spinner" style="display:none;">Submitting...</div>
+<script>
+  function showSpinner() {
+    document.getElementById("spinner").style.display = "block";
+  }
+</script>
+"""
 
-# Define the chatbot persona
-persona = "You are a helpful assistant. "
-
-# Create a chat history list
-if 'messages' not in st.session_state:
-    st.session_state.messages = []
-
-# User input
-user_question = st.text_input("Ask anything about me")
-if st.button("ASK", use_container_width=True):
-    st.session_state.messages.append({"role": "user", "content": user_question})
-    prompt_messages = [{"role": "system", "content": persona}] + st.session_state.messages
-
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=prompt_messages,
-        max_tokens=100
-    )
-    
-    # Get the chatbot response and display it
-    chatbot_response = response.choices[0].message['content'].strip()
-    st.session_state.messages.append({"role": "assistant", "content": chatbot_response})
-    st.write(chatbot_response)
-
-# Display chat history
-if st.session_state.messages:
-    for message in st.session_state.messages:
-        role = "You" if message["role"] == "user" else "Assistant"
-        st.write(f"**{role}:** {message['content']}")
+# Display the form
+st.markdown(contact_form, unsafe_allow_html=True)
