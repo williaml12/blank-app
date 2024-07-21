@@ -27,3 +27,4 @@ contact_form = """
 
 # Display the form
 st.markdown(contact_form, unsafe_allow_html=True)
+
