@@ -50,3 +50,4 @@ if submit_button:
     """ % (name, email, message), unsafe_allow_html=True)
 
     st.markdown('<div id="spinner">Submitting...</div>', unsafe_allow_html=True)
+
