@@ -8,113 +8,72 @@
 
 import streamlit as st
 
-# Inline CSS to ensure the styles are applied correctly
-st.markdown("""
-    <style>
-    /* Change the sidebar color */
-    [data-testid=stSidebar] {
-      background-image: linear-gradient(#000395, #FFD4DD);
-    }
+# Function to load local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-    /* Style hyperlinks */
-    a {
-      display: block;
-      color: #2e9aff !important;
-      font-weight: bold;
-    }
+# Load CSS
+local_css("style/style.css")
 
-    p {
-      color: white;
-    }
+# Function to simulate form submission
+def submit_form(name, email, message):
+    with st.spinner('Submitting...'):
+        # Simulate a delay for form submission
+        import time
+        time.sleep(2)
+        # Optionally, you can save the data or send an email here
+        # For example:
+        # send_email(name, email, message)
+    st.success('Form submitted successfully!')
 
-    .st-ck {
-      caret-color: black;
-    }
+# Create a form in Streamlit
+with st.form(key='contact_form'):
+    name = st.text_input('Your name')
+    email = st.text_input('Your email')
+    message = st.text_area('Your message')
+    submit_button = st.form_submit_button(label='Send')
 
-    .st-bh, .st-c2, .st-c3, .st-c4, .st-c5, .st-c6, .st-c7, .st-c8, .st-c9, .st-ca, .st-cb, .st-b8, .st-cc, .st-cd, .st-ce, .st-cf, .st-cg, .st-ch, .st-ci, .st-cj, .st-ae, .st-af, .st-ag, .st-ck, .st-ai, .st-aj, .st-c1, .st-cl, .st-cm, .st-cn {
-      color: black;
-    }
+# Handle form submission
+if submit_button:
+    submit_form(name, email, message)
+    st.markdown("""
+        <script>
+            document.getElementById('spinner').style.display = 'block';
+        </script>
+    """, unsafe_allow_html=True)
 
-    /* Style the contact form */
-    input[type=message], input[type=email], input[type=text], textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      margin-top: 6px;
-      margin-bottom: 16px;
-      resize: vertical;
-    }
-
-    /* Style the submit button with a specific background color etc */
-    button[type=submit] {
-      background-color: #04AA6D;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    /* When moving the mouse over the submit button, add a darker green color */
-    button[type=submit]:hover {
-      background-color: #45a049;
-    }
-
-    /* Hide Streamlit Branding */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-
-    /* Design Hyperlink */
-    a:link, a:visited {
-      color: blue;
-      text-decoration: underline;
-    }
-
-    a:hover, a:active {
-      color: red;
-      text-decoration: underline;
-    }
-
-    .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: #001d6c;
-      color: white;
-      text-align: center;
-    }
-
-    /* Spinner Styles */
-    #spinner {
-      display: none;
-      color: #04AA6D;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# HTML form with spinner
-contact_form = """
-<form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" onsubmit="showSpinner()">
+# Create a hidden form for submission to formsubmit.co
+hidden_form = """
+<form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" id="hiddenForm" style="display: none;">
   <input type="hidden" name="_captcha" value="false">
-  <input type="text" name="name" placeholder="Your name" required>
-  <input type="email" name="email" placeholder="Your email" required>
-  <textarea name="message" placeholder="Your message" required></textarea>
-  <button type="submit">Send</button>
+  <input type="hidden" id="hiddenName" name="name">
+  <input type="hidden" id="hiddenEmail" name="email">
+  <input type="hidden" id="hiddenMessage" name="message">
 </form>
-<div id="spinner" style="display:none;">Submitting...</div>
-<script>
-  function showSpinner() {
-    document.getElementById("spinner").style.display = "block";
-  }
-</script>
 """
 
-# Display the form
-st.markdown(contact_form, unsafe_allow_html=True)
+# Display the hidden form and spinner
+st.markdown(hidden_form, unsafe_allow_html=True)
+st.markdown('<div id="spinner" style="display:none;">Submitting...</div>', unsafe_allow_html=True)
 
+# JavaScript for form submission
+st.markdown("""
+    <script>
+        function submitHiddenForm(name, email, message) {
+            document.getElementById('hiddenName').value = name;
+            document.getElementById('hiddenEmail').value = email;
+            document.getElementById('hiddenMessage').value = message;
+            document.getElementById('spinner').style.display = 'block';
+            document.getElementById('hiddenForm').submit();
+        }
+    </script>
+""", unsafe_allow_html=True)
+
+# JavaScript to trigger the hidden form submission
+if submit_button:
+    st.markdown(f"""
+        <script>
+            submitHiddenForm("{name}", "{email}", "{message}");
+        </script>
+    """, unsafe_allow_html=True)
