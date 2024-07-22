@@ -82,9 +82,3 @@ a:hover, a:active {
   margin-top: 10px;
   font-size: 16px;
 }
-
-/* Disabled Form Styles */
-#contactForm.disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
