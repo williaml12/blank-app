@@ -16,17 +16,12 @@ def local_css(file_name):
 # Load CSS
 local_css("style/style.css")
 
-# Function to simulate form submission
 def submit_form(name, email, message):
     with st.spinner('Submitting...'):
-        # Simulate a delay for form submission
-        # You can replace this with your actual form submission logic
         import time
-        time.sleep(2)
-        # Optionally, you can save the data or send an email here
-        # For example:
-        # send_email(name, email, message)
+        time.sleep(5)  # Increase delay time to 5 seconds
     st.success('Form submitted successfully!')
+
 
 # Create a form in Streamlit
 with st.form(key='contact_form'):
