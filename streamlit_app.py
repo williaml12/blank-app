@@ -16,6 +16,7 @@ def local_css(file_name):
 # Load CSS
 local_css("style/style.css")
 
+st.subheader("📨 Contact Me")
 # HTML form with spinner
 contact_form = """
 <form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" onsubmit="showSpinner()">
