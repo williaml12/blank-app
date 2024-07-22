@@ -16,10 +16,11 @@ def local_css(file_name):
 # Load CSS
 local_css("style/style.css")
 
+# Function to simulate form submission
 def submit_form(name, email, message):
     with st.spinner('Submitting...'):
         import time
-        # time.sleep(5)  # Increase delay time to 5 seconds
+        time.sleep(5)  # Increase delay time to 5 seconds
     st.success('Form submitted successfully!')
 
 
