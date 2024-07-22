@@ -14,6 +14,8 @@ def local_css(file_name):
 # Apply local CSS styles from the "style.css" file
 local_css("style/style.css")
 
+st.subheader("📨 Contact Me")
+
 contact_form = f"""
         <form action="<https://formsubmit.co/alphagalaga@gmail.com>" method="POST">
             <input type="hidden" name="_captcha value="false">
