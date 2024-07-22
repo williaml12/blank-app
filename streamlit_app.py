@@ -6,35 +6,23 @@
 #     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 # )
 
-# JavaScript code to handle form submission
-javascript_code = """
-<script>
-function submitForm() {
-    var form = document.getElementById("myForm");
-    var submissionMessage = document.getElementById("submissionMessage");
-
-    // Display "Submitting..." message
-    submissionMessage.innerHTML = "Submitting...";
-
-    // Submit the form asynchronously
-    fetch(form.action, {
-        method: form.method,
-        body: new FormData(form)
-    }).then(function(response) {
-        // Handle response here, e.g., display success message
-        submissionMessage.innerHTML = "Form submitted successfully!";
-        form.reset(); // Optional: Reset the form after successful submission
-    }).catch(function(error) {
-        // Handle errors here, e.g., display error message
-        submissionMessage.innerHTML = "Error submitting form: " + error.message;
-    });
-
-    return false; // Prevent the default form submission
-}
-</script>
-"""
-
-# Display the JavaScript code using Streamlit
-st.markdown(javascript_code, unsafe_allow_html=True)
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
+# Apply local CSS styles from the "style.css" file
+local_css("style/style.css")
+
+contact_form = f"""
+        <form action="<https://formsubmit.co/alphagalaga@gmail.com>" method="POST">
+            <input type="hidden" name="_captcha value="false">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message here" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        """
+        
+st.subheader("📨 Contact Me")
+st.markdown(contact_form, unsafe_allow_html=True)
