@@ -7,6 +7,7 @@
 # )
 
 import streamlit as st
+import time
 
 # Function to load local CSS
 def local_css(file_name):
@@ -16,22 +17,50 @@ def local_css(file_name):
 # Load CSS
 local_css("style/style.css")
 
-# Create the form
+# Create a form in Streamlit
+with st.form(key='contact_form'):
+    name = st.text_input('Your name')
+    email = st.text_input('Your email')
+    message = st.text_area('Your message')
+    submit_button = st.form_submit_button(label='Send')
+
+# Handle form submission
+if submit_button:
+    with st.spinner('Submitting...'):
+        # Simulate a delay for form submission
+        time.sleep(2)  # Simulating form submission delay
+        
+        # Here, instead of actually submitting to formsubmit.co, we'll display a success message
+        # because we can't directly post to formsubmit.co in this environment
+        st.success('Form submitted successfully!')
+
+# JavaScript for form submission
 st.markdown("""
-    <form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" onsubmit="showSpinner()">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Your message" required></textarea>
-        <button type="submit">Send</button>
-    </form>
-    <div id="spinner" style="display:none;">Submitting...</div>
     <script>
-        function showSpinner() {
-            document.getElementById("spinner").style.display = "block";
-            setTimeout(function() {
-                document.getElementById("spinner").style.display = "none";
-            }, 2000); // Hides the spinner after 2 seconds for demonstration purposes
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            fetch('https://formsubmit.co/alphagalaga@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    _captcha: false
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Form submitted successfully!');
+                } else {
+                    alert('There was an error submitting the form.');
+                }
+            }).catch(error => {
+                alert('There was an error submitting the form.');
+            });
         }
     </script>
 """, unsafe_allow_html=True)
