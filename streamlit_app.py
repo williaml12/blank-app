@@ -26,5 +26,4 @@ contact_form = f"""
         </form>
         """
         
-st.subheader("📨 Contact Me")
 st.markdown(contact_form, unsafe_allow_html=True)
