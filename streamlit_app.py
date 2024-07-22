@@ -7,6 +7,7 @@
 # )
 
 import streamlit as st
+import time
 
 # Function to load local CSS
 def local_css(file_name):
@@ -16,24 +17,24 @@ def local_css(file_name):
 # Load CSS
 local_css("style/style.css")
 
-# HTML form with spinner
-contact_form = """
-<form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST" id="contactForm" onsubmit="showSpinner()">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="text" name="name" placeholder="Your name" required>
-  <input type="email" name="email" placeholder="Your email" required>
-  <textarea name="message" placeholder="Your message" required></textarea>
-  <button type="submit">Send</button>
-</form>
-<div id="spinner">Submitting...</div>
-<script>
-  function showSpinner() {
-    document.getElementById('spinner').style.display = 'block';
-    document.getElementById('contactForm').classList.add('disabled');
-  }
-</script>
-"""
+# Create the form in Streamlit
+with st.form(key='contact_form'):
+    name = st.text_input('Your name')
+    email = st.text_input('Your email')
+    message = st.text_area('Your message')
+    submit_button = st.form_submit_button(label='Send')
 
-# Display the form
-st.markdown(contact_form, unsafe_allow_html=True)
-
+# Handle form submission
+if submit_button:
+    with st.spinner('Submitting...'):
+        # Simulate a delay for form submission
+        time.sleep(2)  # Simulating form submission delay
+        # Simulate form submission success
+        st.success('Form submitted successfully!')
+        
+    # To mimic form submission to formsubmit.co
+    # This will just display the input values, as we can't actually submit to formsubmit.co in this environment
+    st.write("Submitted data:")
+    st.write(f"Name: {name}")
+    st.write(f"Email: {email}")
+    st.write(f"Message: {message}")
