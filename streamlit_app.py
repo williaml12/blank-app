@@ -8,16 +8,19 @@
 
 import streamlit as st
 
-contact_form = f"""
-<form action="https://formsubmit.co/alphagalaga@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
+st.title("Contact Form")
+
+# Define the HTML form with a placeholder for submission message
+contact_form = """
+<form id="myForm" action="https://formsubmit.co/your-email-here" method="POST">
     <input type="text" name="name" placeholder="Your name" required>
     <input type="email" name="email" placeholder="Your email" required>
     <textarea name="message" placeholder="Your message here" required></textarea>
-    <button type="submit">Send</button>
+    <button type="submit" onclick="submitForm()">Send</button>
+    <div id="submissionMessage"></div>
 </form>
 """
 
-# Displaying the form using Streamlit
-st.subheader("📨 Contact Me")
+# Display the form using Streamlit
 st.markdown(contact_form, unsafe_allow_html=True)
+
