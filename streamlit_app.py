@@ -8,23 +8,29 @@
 
 import streamlit as st
 
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# Initialize session state for conversation history if not already done
+if 'conversation' not in st.session_state:
+    st.session_state.conversation = []
 
+# Create a form for input and button
+with st.form(key='question_form'):
+    user_question = st.text_input("Ask anything about me", placeholder="Enter a prompt here")
+    submit_button = st.form_submit_button(label='ASK ME', use_container_width=400)
 
-# Apply local CSS styles from the "style.css" file
-local_css("style/style.css")
+# Handle form submission
+if submit_button:
+    if user_question:
+        prompt = persona + "Here is the question that the user asked: " + user_question
+        try:
+            response = model.generate_content(prompt)
+            # Append user question and AI response to conversation history
+            st.session_state.conversation.append({"user": user_question, "bot": response.text})
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+    else:
+        st.warning("Please enter a question before clicking ASK ME.")
 
-st.subheader("📨 Contact Me")
-
-contact_form = f"""
-        <form action="<https://formsubmit.co/alphagalaga@gmail.com>" method="POST">
-            <input type="hidden" name="_captcha value="false">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-            <textarea name="message" placeholder="Your message here" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-        """
-st.markdown(contact_form, unsafe_allow_html=True)
+# Display the conversation history
+for chat in st.session_state.conversation:
+    st.write(f"**User:** {chat['user']}")
+    st.write(f"**Bot:** {chat['bot']}")
