@@ -7,30 +7,61 @@
 # )
 
 import streamlit as st
+import time
 
-# Initialize session state for conversation history if not already done
-if 'conversation' not in st.session_state:
-    st.session_state.conversation = []
+# Function to load local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Create a form for input and button
-with st.form(key='question_form'):
-    user_question = st.text_input("Ask anything about me", placeholder="Enter a prompt here")
-    submit_button = st.form_submit_button(label='ASK ME', use_container_width=400)
+# Load CSS
+local_css("style/style.css")
+
+# Create a form in Streamlit
+with st.form(key='contact_form'):
+    name = st.text_input('Your name')
+    email = st.text_input('Your email')
+    message = st.text_area('Your message')
+    submit_button = st.form_submit_button(label='Send')
 
 # Handle form submission
 if submit_button:
-    if user_question:
-        prompt = persona + "Here is the question that the user asked: " + user_question
-        try:
-            response = model.generate_content(prompt)
-            # Append user question and AI response to conversation history
-            st.session_state.conversation.append({"user": user_question, "bot": response.text})
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
-    else:
-        st.warning("Please enter a question before clicking ASK ME.")
+    with st.spinner('Submitting...'):
+        # Simulate a delay for form submission
+        time.sleep(2)  # Simulating form submission delay
+        
+        # Here, instead of actually submitting to formsubmit.co, we'll display a success message
+        # because we can't directly post to formsubmit.co in this environment
+        st.success('Form submitted successfully!')
 
-# Display the conversation history
-for chat in st.session_state.conversation:
-    st.write(f"**User:** {chat['user']}")
-    st.write(f"**Bot:** {chat['bot']}")
+# JavaScript for form submission
+st.markdown("""
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            fetch('https://formsubmit.co/alphagalaga@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    _captcha: false
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Form submitted successfully!');
+                } else {
+                    alert('There was an error submitting the form.');
+                }
+            }).catch(error => {
+                alert('There was an error submitting the form.');
+            });
+        }
+    </script>
+""", unsafe_allow_html=True)
+
