@@ -6,7 +6,9 @@
 #     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 # )
 
-# <a href="https://www.example.com">education</a>
-[education](https://williamlu.streamlit.app/~/+/#education)
+word = "education"
+url = "https://www.example.com"
+html_link = f'<a href="{url}">{word}</a>'
+print(html_link)
 
 
