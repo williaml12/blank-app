@@ -26,6 +26,7 @@
 # st.markdown(html_link, unsafe_allow_html=True)
 
 import streamlit as st
+from PIL import Image
 
 # Title of the project
 st.title("Project Title")
@@ -38,8 +39,15 @@ This project aims to [describe what the project does]. It is interesting because
 """)
 
 # Project Images and Videos
-st.image("path/to/your/image.jpg", caption="Project Image", use_column_width=True)
-st.video("path/to/your/video.mp4")
+try:
+    st.image("image.jpg", caption="Project Image", use_column_width=True)
+except FileNotFoundError as e:
+    st.error(f"Image file not found: {e}")
+
+try:
+    st.video("video.mp4")
+except FileNotFoundError as e:
+    st.error(f"Video file not found: {e}")
 
 # Components & Materials
 st.header("Components & Materials")
@@ -72,15 +80,20 @@ hello_world()
 """, language='python')
 
 # Diagrams/Schematics
-st.write("### Diagrams/Schematics")
-st.image("path/to/your/diagram.png", caption="Wiring Diagram", use_column_width=True)
+try:
+    st.image("diagram.png", caption="Wiring Diagram", use_column_width=True)
+except FileNotFoundError as e:
+    st.error(f"Diagram file not found: {e}")
 
 # Outcome & Results
 st.header("Outcome & Results")
 st.write("""
 The final outcome of the project is [describe what the project does]. It works by [explain how it works]. Here is a demonstration:
 """)
-st.image("path/to/your/demo_image.jpg", caption="Project in Action", use_column_width=True)
+try:
+    st.image("demo_image.jpg", caption="Project in Action", use_column_width=True)
+except FileNotFoundError as e:
+    st.error(f"Demo image file not found: {e}")
 
 # Conclusion
 st.header("Conclusion")
@@ -109,3 +122,4 @@ tags = ["IoT", "Robotics", "Software"]
 st.write("### Tags")
 for tag in tags:
     st.write(f"- {tag}")
+
