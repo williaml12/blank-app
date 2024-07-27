@@ -109,5 +109,3 @@ tags = ["IoT", "Robotics", "Software"]
 st.write("### Tags")
 for tag in tags:
     st.write(f"- {tag}")
-
-
