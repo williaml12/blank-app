@@ -86,7 +86,7 @@ st.markdown("""
         transition: 0.3s;
     }
     .project-button:hover {
-        background-color: #4CAF50;
+        background-color: #F44336;
     }
     </style>
     """, unsafe_allow_html=True)
