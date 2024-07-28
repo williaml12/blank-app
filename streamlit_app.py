@@ -74,7 +74,7 @@ st.markdown("""
     .project-button {
         background-color: #FFD966;
         border: none;
-        color: black;
+        color: white;
         text-align: center;
         text-decoration: none;
         display: inline-block;
