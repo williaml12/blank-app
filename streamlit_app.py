@@ -27,35 +27,44 @@
 
 import streamlit as st
 
-# Include Font Awesome CSS
-st.markdown("""
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    """, unsafe_allow_html=True)
+# Project 1
+with st.expander("Project 1: AI Chatbot"):
+    st.image("https://via.placeholder.com/150", caption="AI Chatbot", use_column_width=True)
+    st.write("""
+        **Description**: Developed an AI chatbot using natural language processing and machine learning techniques.
+        **Technologies Used**: Python, TensorFlow, NLTK, Flask
+        **Repository**: [GitHub](https://github.com/yourusername/aichatbot)
+    """)
+    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
-# HTML for contact icons with vertical layout
-contact_icons_html = """
-<div style="display: flex; flex-direction: column; align-items: left; margin-top: 20px;">
-    <a href="mailto:youremail@example.com" style="text-decoration: none; color: black; margin-bottom: 20px;">
-        <i class="fas fa-envelope" style="font-size: 24px;"></i> Email
-    </a>
-    <a href="tel:+1234567890" style="text-decoration: none; color: black; margin-bottom: 20px;">
-        <i class="fas fa-phone" style="font-size: 24px;"></i> Phone
-    </a>
-    <a href="https://www.linkedin.com/in/yourprofile/" target="_blank" style="text-decoration: none; color: black; margin-bottom: 20px;">
-        <i class="fab fa-linkedin" style="font-size: 24px;"></i> LinkedIn
-    </a>
-    <a href="https://github.com/yourusername" target="_blank" style="text-decoration: none; color: black; margin-bottom: 20px;">
-        <i class="fab fa-github" style="font-size: 24px;"></i> GitHub
-    </a>
-    <a href="https://www.hackster.io/yourusername" target="_blank" style="text-decoration: none; color: black; margin-bottom: 20px;">
-        <img src="https://www.vectorlogo.zone/logos/hackster/hackster-icon.svg" style="width: 24px; height: 24px; vertical-align: middle;"/> Hackster.io
-    </a>
-</div>
-"""
+# Project 2
+with st.expander("Project 2: Web Scraper"):
+    st.image("https://via.placeholder.com/150", caption="Web Scraper", use_column_width=True)
+    st.write("""
+        **Description**: Built a web scraper to collect data from multiple websites for analysis.
+        **Technologies Used**: Python, BeautifulSoup, Selenium
+        **Repository**: [GitHub](https://github.com/yourusername/webscraper)
+    """)
 
-# Display the contact icons
-st.markdown(contact_icons_html, unsafe_allow_html=True)
+# Project 3
+with st.expander("Project 3: Data Visualization"):
+    st.image("https://via.placeholder.com/150", caption="Data Visualization", use_column_width=True)
+    st.write("""
+        **Description**: Created interactive data visualizations to display trends and insights.
+        **Technologies Used**: Python, Pandas, Matplotlib, Plotly
+        **Repository**: [GitHub](https://github.com/yourusername/dataviz)
+    """)
+    st.pyplot()
 
-for i, project in enumerate(projects):
-    with columns[i % num_columns]:
-        display_project(project)
+# Project 4
+with st.expander("Project 4: Mobile App Development"):
+    st.image("https://via.placeholder.com/150", caption="Mobile App", use_column_width=True)
+    st.write("""
+        **Description**: Developed a mobile app for tracking fitness activities.
+        **Technologies Used**: Java, Android Studio, Firebase
+        **Repository**: [GitHub](https://github.com/yourusername/fitnessapp)
+    """)
+    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
+# Add more projects as needed
+
