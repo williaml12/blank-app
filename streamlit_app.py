@@ -26,100 +26,148 @@
 # st.markdown(html_link, unsafe_allow_html=True)
 
 import streamlit as st
-from PIL import Image
 
-# Title of the project
-st.title("Project Title")
-st.subheader("A Brief Tagline or Subtitle")
-
-# Project Overview
-st.header("Project Overview")
-st.write("""
-This project aims to [describe what the project does]. It is interesting because [provide context or reasons why it is valuable].
-""")
-
-# Project Images and Videos
-try:
-    st.image("image.jpg", caption="Project Image", use_column_width=True)
-except FileNotFoundError as e:
-    st.error(f"Image file not found: {e}")
-
-try:
-    st.video("video.mp4")
-except FileNotFoundError as e:
-    st.error(f"Video file not found: {e}")
-
-# Components & Materials
-st.header("Components & Materials")
-st.write("### List of Components")
-components = [
-    {"name": "Component 1", "description": "Description of component 1", "quantity": "1"},
-    {"name": "Component 2", "description": "Description of component 2", "quantity": "2"}
+# Sample project data
+projects = [
+    {
+        "title": "AI Chatbot",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Developed an AI chatbot using natural language processing and machine learning techniques.",
+        "technologies": "Python, TensorFlow, NLTK, Flask",
+        "repo_url": "https://github.com/yourusername/aichatbot",
+        "theme": "project-1"
+    },
+    {
+        "title": "Web Scraper",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Built a web scraper to collect data from multiple websites for analysis.",
+        "technologies": "Python, BeautifulSoup, Selenium",
+        "repo_url": "https://github.com/yourusername/webscraper",
+        "theme": "project-2"
+    },
+    {
+        "title": "Data Visualization",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Created interactive data visualizations to display trends and insights.",
+        "technologies": "Python, Pandas, Matplotlib, Plotly",
+        "repo_url": "https://github.com/yourusername/dataviz",
+        "theme": "project-3"
+    },
+    {
+        "title": "Mobile App Development",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Developed a mobile app for tracking fitness activities.",
+        "technologies": "Java, Android Studio, Firebase",
+        "repo_url": "https://github.com/yourusername/fitnessapp",
+        "theme": "project-4"
+    },
+    {
+        "title": "Portfolio Website",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Designed and developed a personal portfolio website to showcase projects and skills.",
+        "technologies": "HTML, CSS, JavaScript, Streamlit",
+        "repo_url": "https://github.com/yourusername/portfolio",
+        "theme": "project-5"
+    },
+    {
+        "title": "E-commerce Platform",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Built a full-featured e-commerce platform with user authentication, product listings, and payment integration.",
+        "technologies": "Django, React, Stripe",
+        "repo_url": "https://github.com/yourusername/ecommerce",
+        "theme": "project-6"
+    },
+    {
+        "title": "Weather Dashboard",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Created a real-time weather dashboard using APIs to fetch and display weather data.",
+        "technologies": "JavaScript, React, OpenWeatherMap API",
+        "repo_url": "https://github.com/yourusername/weather-dashboard",
+        "theme": "project-7"
+    },
+    {
+        "title": "Chat Application",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Developed a real-time chat application with user authentication and chat rooms.",
+        "technologies": "Node.js, Socket.io, Express",
+        "repo_url": "https://github.com/yourusername/chat-app",
+        "theme": "project-8"
+    }
 ]
-for component in components:
-    st.write(f"- **{component['name']}**: {component['description']} (Quantity: {component['quantity']})")
 
-# Build Instructions
-st.header("Build Instructions")
-st.write("### Step-by-Step Guide")
-instructions = [
-    "Step 1: [Instruction 1]",
-    "Step 2: [Instruction 2]",
-    "Step 3: [Instruction 3]"
-]
-for instruction in instructions:
-    st.write(f"- {instruction}")
+# CSS styles for themed projects
+st.markdown("""
+    <style>
+    .project-container {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        text-align: center;
+    }
+    .project-container:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    .project-1 { background-color: #ffdddd; }
+    .project-2 { background-color: #ddffdd; }
+    .project-3 { background-color: #ddddff; }
+    .project-4 { background-color: #ffffdd; }
+    .project-5 { background-color: #ffddff; }
+    .project-6 { background-color: #ddffff; }
+    .project-7 { background-color: #ffd700; }
+    .project-8 { background-color: #ff6347; }
+    .project-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .project-description {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .project-technologies {
+        font-size: 16px;
+        margin-top: 10px;
+        color: #555;
+    }
+    .project-button {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 10px 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .project-button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
-# Code Snippet
-st.write("### Code")
-st.code("""
-# Example Python code
-def hello_world():
-    print("Hello, world!")
-hello_world()
-""", language='python')
+# Function to display a project card
+def display_project(project):
+    st.markdown(f"""
+    <div class="project-container {project['theme']}">
+        <img src="{project['image_url']}" alt="{project['title']}" style="width:100%; border-radius: 10px;">
+        <div class="project-title">{project['title']}</div>
+        <div class="project-description">{project['description']}</div>
+        <div class="project-technologies"><strong>Technologies Used</strong>: {project['technologies']}</div>
+        <a href="{project['repo_url']}" class="project-button" target="_blank">View Repository</a>
+    </div>
+    """, unsafe_allow_html=True)
 
-# Diagrams/Schematics
-try:
-    st.image("diagram.png", caption="Wiring Diagram", use_column_width=True)
-except FileNotFoundError as e:
-    st.error(f"Diagram file not found: {e}")
+# Display projects in a grid
+num_columns = 2  # Number of columns in the grid
+columns = st.columns(num_columns)
 
-# Outcome & Results
-st.header("Outcome & Results")
-st.write("""
-The final outcome of the project is [describe what the project does]. It works by [explain how it works]. Here is a demonstration:
-""")
-try:
-    st.image("demo_image.jpg", caption="Project in Action", use_column_width=True)
-except FileNotFoundError as e:
-    st.error(f"Demo image file not found: {e}")
-
-# Conclusion
-st.header("Conclusion")
-st.write("""
-In summary, [recap the project’s goals and achievements]. Future work could involve [suggest improvements or extensions].
-""")
-
-# Credits & References
-st.header("Credits & References")
-st.write("""
-- **Acknowledgements:** Thanks to [any collaborators or sources of inspiration].
-- **References:** [Links to additional resources or documentation].
-""")
-
-# Comments & Feedback
-st.header("Comments & Feedback")
-st.write("Feel free to leave your comments or ask questions below:")
-user_input = st.text_area("Your Comments:")
-if st.button("Submit"):
-    st.write("Thank you for your feedback!")
-    st.write(f"Your Comment: {user_input}")
-
-# Tags & Categories
-st.header("Tags & Categories")
-tags = ["IoT", "Robotics", "Software"]
-st.write("### Tags")
-for tag in tags:
-    st.write(f"- {tag}")
+for i, project in enumerate(projects):
+    with columns[i % num_columns]:
+        display_project(project)
 
