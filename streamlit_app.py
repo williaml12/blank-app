@@ -55,7 +55,7 @@ projects = [
 st.markdown("""
     <style>
     .project-card {
-        background-color: #f9f9f9;
+        background-color: #2986CC
         border-radius: 15px;
         padding: 20px;
         margin: 10px;
