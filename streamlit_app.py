@@ -27,14 +27,45 @@
 
 import streamlit as st
 
-# Define the HTML content with CSS for alignment
-html_content = """
-<div style="display: flex; justify-content: space-between; width: 100%;">
-    <div>B.S.E., Biomedical Engineering</div>
-    <div>May 2017</div>
-</div>
-"""
+# Project 1
+with st.expander("Project 1: AI Chatbot"):
+    st.image("https://via.placeholder.com/150", caption="AI Chatbot", use_column_width=True)
+    st.write("""
+        **Description**: Developed an AI chatbot using natural language processing and machine learning techniques.
+        **Technologies Used**: Python, TensorFlow, NLTK, Flask
+        **Repository**: [GitHub](https://github.com/yourusername/aichatbot)
+    """)
+    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
-# Render the HTML content in Streamlit
-st.markdown(html_content, unsafe_allow_html=True)
+# Project 2
+with st.expander("Project 2: Web Scraper"):
+    st.image("https://via.placeholder.com/150", caption="Web Scraper", use_column_width=True)
+    st.write("""
+        **Description**: Built a web scraper to collect data from multiple websites for analysis.
+        **Technologies Used**: Python, BeautifulSoup, Selenium
+        **Repository**: [GitHub](https://github.com/yourusername/webscraper)
+    """)
+
+# Project 3
+with st.expander("Project 3: Data Visualization"):
+    st.image("https://via.placeholder.com/150", caption="Data Visualization", use_column_width=True)
+    st.write("""
+        **Description**: Created interactive data visualizations to display trends and insights.
+        **Technologies Used**: Python, Pandas, Matplotlib, Plotly
+        **Repository**: [GitHub](https://github.com/yourusername/dataviz)
+    """)
+    st.pyplot()
+
+# Project 4
+with st.expander("Project 4: Mobile App Development"):
+    st.image("https://via.placeholder.com/150", caption="Mobile App", use_column_width=True)
+    st.write("""
+        **Description**: Developed a mobile app for tracking fitness activities.
+        **Technologies Used**: Java, Android Studio, Firebase
+        **Repository**: [GitHub](https://github.com/yourusername/fitnessapp)
+    """)
+    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
+# Add more projects as needed
+
 
