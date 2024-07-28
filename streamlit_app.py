@@ -72,7 +72,7 @@ st.markdown("""
         margin-top: 10px;
     }
     .project-button {
-        background-color: #4CAF50;
+        background-color: #FFD966;
         border: none;
         color: white;
         text-align: center;
@@ -86,7 +86,7 @@ st.markdown("""
         transition: 0.3s;
     }
     .project-button:hover {
-        background-color: #45a049;
+        background-color: #4CAF50;
     }
     </style>
     """, unsafe_allow_html=True)
