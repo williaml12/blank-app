@@ -54,8 +54,8 @@ projects = [
 # Function to display a project with interactive features
 def display_project(project):
     st.image(project["image_url"], use_column_width=True)
-    st.markdown(f"<h3 style='text-align: center; font-family: Arial, sans-serif; font-size: 16px;'>{project['title']}</h3>", unsafe_allow_html=True)
-    if st.button(f"View project"):
+    st.markdown(f"<h3 style='text-align: center; font-family: Arial, sans-serif; font-size: 20px;'>{project['title']}</h3>", unsafe_allow_html=True)
+    if st.button(f"View {project['title']} Repository", key=project["title"]):
         st.write(f"Redirecting to: {project['repo_url']}")
         st.experimental_set_query_params(url=project["repo_url"])
 
@@ -68,3 +68,4 @@ for i, project in enumerate(projects):
         display_project(project)
 
 # Add more projects and adjust the layout as needed
+
