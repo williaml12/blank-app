@@ -72,7 +72,7 @@ st.markdown("""
         margin-top: 10px;
     }
     .project-button {
-        background-color: #2986CC;
+        background-color: #FFD966;
         border: none;
         color: white;
         text-align: center;
