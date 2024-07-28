@@ -63,23 +63,33 @@ projects = [
 st.markdown("""
     <style>
     .project-card {
-        background-color: #fff;
-        border-radius: 10px;
+        background-color: #f9f9f9;
+        border-radius: 15px;
         padding: 20px;
         margin: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
+        text-align: center;
     }
     .project-card:hover {
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
     .project-title {
-        font-size: 18px;
+        font-size: 24px;
         font-weight: bold;
         margin-top: 10px;
     }
+    .project-description {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .project-technologies {
+        font-size: 16px;
+        margin-top: 10px;
+        color: #555;
+    }
     .project-button {
-        background-color: #007bff;
+        background-color: #4CAF50;
         border: none;
         color: white;
         text-align: center;
@@ -93,7 +103,7 @@ st.markdown("""
         transition: 0.3s;
     }
     .project-button:hover {
-        background-color: #0056b3;
+        background-color: #45a049;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -102,16 +112,16 @@ st.markdown("""
 def display_project(project):
     st.markdown(f"""
     <div class="project-card">
-        <img src="{project['image_url']}" alt="{project['title']}" style="width:100%; border-radius: 10px;">
+        <img src="{project['image_url']}" alt="{project['title']}" style="width:100%">
         <div class="project-title">{project['title']}</div>
         <div class="project-description">{project['description']}</div>
         <div class="project-technologies"><strong>Technologies Used</strong>: {project['technologies']}</div>
-        <a href="{project['repo_url']}" class="project-button" target="_blank">View Repository</a>
+        <a href="{project['repo_url']}" class="project-button">View Repository</a>
     </div>
     """, unsafe_allow_html=True)
 
 # Display projects in a grid
-num_columns = 3  # Number of columns in the grid
+num_columns = 2  # Number of columns in the grid
 columns = st.columns(num_columns)
 
 for i, project in enumerate(projects):
