@@ -110,8 +110,3 @@ for i, project in enumerate(projects):
         display_project(project)
 
 # Add more projects and adjust the layout as needed
-
-    with columns[i % num_columns]:
-        display_project(project)
-
-# Add more projects and adjust the layout as needed
