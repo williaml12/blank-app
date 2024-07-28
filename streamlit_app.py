@@ -66,9 +66,9 @@ def display_project(project):
     """
     st.markdown(button_html, unsafe_allow_html=True)
     
-    if st.button("", key=button_key):
-        st.write(f"Redirecting to: {project['repo_url']}")
-        st.experimental_set_query_params(url=project["repo_url"])
+    # if st.button("", key=button_key):
+    #     st.write(f"Redirecting to: {project['repo_url']}")
+    #     st.experimental_set_query_params(url=project["repo_url"])
 
 # Display projects in a grid
 num_columns = 3  # Number of columns in the grid
