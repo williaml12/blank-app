@@ -53,11 +53,14 @@ projects = [
 
 # Function to display a project with interactive features
 def display_project(project):
+    font_url = "https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+    st.markdown(f"<link href='{font_url}' rel='stylesheet'>", unsafe_allow_html=True)
     st.image(project["image_url"], use_column_width=True)
-    st.markdown(f"<h3 style='text-align: center;'>{project['title']}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3 style='text-align: center; font-family: Roboto, sans-serif;'>{project['title']}</h3>", unsafe_allow_html=True)
     if st.button(f"View {project['title']} Repository", key=project["title"]):
         st.write(f"Redirecting to: {project['repo_url']}")
         st.experimental_set_query_params(url=project["repo_url"])
+
 
 # Display projects in a grid
 num_columns = 3  # Number of columns in the grid
