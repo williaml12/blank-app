@@ -55,9 +55,14 @@ projects = [
 def display_project(project):
     st.image(project["image_url"], use_column_width=True)
     st.markdown(f"<h3 style='text-align: center; font-family: Arial, sans-serif; font-size: 16px;'>{project['title']}</h3>", unsafe_allow_html=True)
-    if st.button(f"View  Project", key=project["title"]):
-        st.write(f"Redirecting to: {project['repo_url']}")
-        st.experimental_set_query_params(url=project["repo_url"])
+    button_html = f"""
+        <div style="display: flex; justify-content: center;">
+            <form action="{project['repo_url']}">
+                <button style="padding: 0.5em; font-size: 1em; border-radius: 5px; border: none; background-color: #4CAF50; color: white; cursor: pointer;">View {project['title']} Repository</button>
+            </form>
+        </div>
+    """
+    st.markdown(button_html, unsafe_allow_html=True)
 
 # Display projects in a grid
 num_columns = 3  # Number of columns in the grid
