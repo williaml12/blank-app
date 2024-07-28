@@ -64,7 +64,7 @@ st.markdown("""
         text-align: center;
     }
     .project-card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
     }
     .project-title {
         font-size: 14px;
