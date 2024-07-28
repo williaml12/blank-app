@@ -27,44 +27,122 @@
 
 import streamlit as st
 
+# CSS styles for themed projects
+st.markdown("""
+    <style>
+    .project-container {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .project-1 { background-color: #ffdddd; }
+    .project-2 { background-color: #ddffdd; }
+    .project-3 { background-color: #ddddff; }
+    .project-4 { background-color: #ffffdd; }
+    .project-title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .project-description {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .project-technologies {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .project-link {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # Project 1
 with st.expander("Project 1: AI Chatbot"):
-    st.image("https://via.placeholder.com/150", caption="AI Chatbot", use_column_width=True)
-    st.write("""
-        **Description**: Developed an AI chatbot using natural language processing and machine learning techniques.
-        **Technologies Used**: Python, TensorFlow, NLTK, Flask
-        **Repository**: [GitHub](https://github.com/yourusername/aichatbot)
-    """)
-    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    st.markdown("""
+    <div class="project-container project-1">
+        <div class="project-title">AI Chatbot</div>
+        <img src="https://via.placeholder.com/150" alt="AI Chatbot" style="width:100%">
+        <div class="project-description">
+            <strong>Description</strong>: Developed an AI chatbot using natural language processing and machine learning techniques.
+        </div>
+        <div class="project-technologies">
+            <strong>Technologies Used</strong>: Python, TensorFlow, NLTK, Flask
+        </div>
+        <div class="project-link">
+            <strong>Repository</strong>: <a href="https://github.com/yourusername/aichatbot">GitHub</a>
+        </div>
+        <div class="project-video">
+            <video width="320" height="240" controls>
+                <source src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Project 2
 with st.expander("Project 2: Web Scraper"):
-    st.image("https://via.placeholder.com/150", caption="Web Scraper", use_column_width=True)
-    st.write("""
-        **Description**: Built a web scraper to collect data from multiple websites for analysis.
-        **Technologies Used**: Python, BeautifulSoup, Selenium
-        **Repository**: [GitHub](https://github.com/yourusername/webscraper)
-    """)
+    st.markdown("""
+    <div class="project-container project-2">
+        <div class="project-title">Web Scraper</div>
+        <img src="https://via.placeholder.com/150" alt="Web Scraper" style="width:100%">
+        <div class="project-description">
+            <strong>Description</strong>: Built a web scraper to collect data from multiple websites for analysis.
+        </div>
+        <div class="project-technologies">
+            <strong>Technologies Used</strong>: Python, BeautifulSoup, Selenium
+        </div>
+        <div class="project-link">
+            <strong>Repository</strong>: <a href="https://github.com/yourusername/webscraper">GitHub</a>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Project 3
 with st.expander("Project 3: Data Visualization"):
-    st.image("https://via.placeholder.com/150", caption="Data Visualization", use_column_width=True)
-    st.write("""
-        **Description**: Created interactive data visualizations to display trends and insights.
-        **Technologies Used**: Python, Pandas, Matplotlib, Plotly
-        **Repository**: [GitHub](https://github.com/yourusername/dataviz)
-    """)
-    st.pyplot()
+    st.markdown("""
+    <div class="project-container project-3">
+        <div class="project-title">Data Visualization</div>
+        <img src="https://via.placeholder.com/150" alt="Data Visualization" style="width:100%">
+        <div class="project-description">
+            <strong>Description</strong>: Created interactive data visualizations to display trends and insights.
+        </div>
+        <div class="project-technologies">
+            <strong>Technologies Used</strong>: Python, Pandas, Matplotlib, Plotly
+        </div>
+        <div class="project-link">
+            <strong>Repository</strong>: <a href="https://github.com/yourusername/dataviz">GitHub</a>
+        </div>
+        <div class="project-chart">
+            <!-- Place your chart code here -->
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Project 4
 with st.expander("Project 4: Mobile App Development"):
-    st.image("https://via.placeholder.com/150", caption="Mobile App", use_column_width=True)
-    st.write("""
-        **Description**: Developed a mobile app for tracking fitness activities.
-        **Technologies Used**: Java, Android Studio, Firebase
-        **Repository**: [GitHub](https://github.com/yourusername/fitnessapp)
-    """)
-    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    st.markdown("""
+    <div class="project-container project-4">
+        <div class="project-title">Mobile App Development</div>
+        <img src="https://via.placeholder.com/150" alt="Mobile App Development" style="width:100%">
+        <div class="project-description">
+            <strong>Description</strong>: Developed a mobile app for tracking fitness activities.
+        </div>
+        <div class="project-technologies">
+            <strong>Technologies Used</strong>: Java, Android Studio, Firebase
+        </div>
+        <div class="project-link">
+            <strong>Repository</strong>: <a href="https://github.com/yourusername/fitnessapp">GitHub</a>
+        </div>
+        <div class="project-video">
+            <video width="320" height="240" controls>
+                <source src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Add more projects as needed
+
 
