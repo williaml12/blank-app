@@ -55,18 +55,7 @@ projects = [
 def display_project(project):
     st.image(project["image_url"], use_column_width=True)
     st.markdown(f"<h3 style='text-align: center; font-family: Arial, sans-serif; font-size: 16px;'>{project['title']}</h3>", unsafe_allow_html=True)
-    
-    button_key = f"button-{project['title']}"
-    button_html = f"""
-    <div style="display: flex; justify-content: center;">
-        <button id="{button_key}" style="padding: 0.5em; font-size: 1em; border-radius: 5px; border: none; background-color: #4CAF50; color: white; cursor: pointer;">
-            View {project['title']} Repository
-        </button>
-    </div>
-    """
-    st.markdown(button_html, unsafe_allow_html=True)
-    
-    if st.button("", key=button_key):
+    if st.button(f"View {project['title']} Repository", key=project["title"]):
         st.write(f"Redirecting to: {project['repo_url']}")
         st.experimental_set_query_params(url=project["repo_url"])
 
