@@ -32,21 +32,29 @@ projects = [
     {
         "title": "AI Chatbot",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Developed an AI chatbot using natural language processing and machine learning techniques.",
+        "technologies": "Python, TensorFlow, NLTK, Flask",
         "repo_url": "https://github.com/yourusername/aichatbot"
     },
     {
         "title": "Web Scraper",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Built a web scraper to collect data from multiple websites for analysis.",
+        "technologies": "Python, BeautifulSoup, Selenium",
         "repo_url": "https://github.com/yourusername/webscraper"
     },
     {
         "title": "Data Visualization",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Created interactive data visualizations to display trends and insights.",
+        "technologies": "Python, Pandas, Matplotlib, Plotly",
         "repo_url": "https://github.com/yourusername/dataviz"
     },
     {
         "title": "Mobile App Development",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Developed a mobile app for tracking fitness activities.",
+        "technologies": "Java, Android Studio, Firebase",
         "repo_url": "https://github.com/yourusername/fitnessapp"
     }
 ]
@@ -55,24 +63,32 @@ projects = [
 st.markdown("""
     <style>
     .project-card {
-        background-color: #000000
+        background-color: #f9f9f9;
         border-radius: 15px;
         padding: 20px;
         margin: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
-        text-align: center;
     }
     .project-card:hover {
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
     .project-title {
-        font-size: 14px;
+        font-size: 24px;
         font-weight: bold;
         margin-top: 10px;
     }
+    .project-description {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .project-technologies {
+        font-size: 16px;
+        margin-top: 10px;
+        color: #555;
+    }
     .project-button {
-        background-color: #8FCE00;
+        background-color: #4CAF50;
         border: none;
         color: white;
         text-align: center;
@@ -86,7 +102,7 @@ st.markdown("""
         transition: 0.3s;
     }
     .project-button:hover {
-        background-color: #F44336;
+        background-color: #45a049;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -97,12 +113,14 @@ def display_project(project):
     <div class="project-card">
         <img src="{project['image_url']}" alt="{project['title']}" style="width:100%">
         <div class="project-title">{project['title']}</div>
-        <a href="{project['repo_url']}" class="project-button">View Project</a>
+        <div class="project-description">{project['description']}</div>
+        <div class="project-technologies"><strong>Technologies Used</strong>: {project['technologies']}</div>
+        <a href="{project['repo_url']}" class="project-button">View Repository</a>
     </div>
     """, unsafe_allow_html=True)
 
 # Display projects in a grid
-num_columns = 3  # Number of columns in the grid
+num_columns = 2  # Number of columns in the grid
 columns = st.columns(num_columns)
 
 for i, project in enumerate(projects):
