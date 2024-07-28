@@ -74,18 +74,9 @@ st.markdown("""
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
     .project-title {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
         margin-top: 10px;
-    }
-    .project-description {
-        font-size: 18px;
-        margin-top: 10px;
-    }
-    .project-technologies {
-        font-size: 16px;
-        margin-top: 10px;
-        color: #555;
     }
     .project-button {
         background-color: #007bff;
@@ -120,7 +111,7 @@ def display_project(project):
     """, unsafe_allow_html=True)
 
 # Display projects in a grid
-num_columns = 2  # Number of columns in the grid
+num_columns = 3  # Number of columns in the grid
 columns = st.columns(num_columns)
 
 for i, project in enumerate(projects):
