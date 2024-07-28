@@ -97,7 +97,7 @@ def display_project(project):
     <div class="project-card">
         <img src="{project['image_url']}" alt="{project['title']}" style="width:100%">
         <div class="project-title">{project['title']}</div>
-        <a href="{project['repo_url']}" class="project-button">View Repository</a>
+        <a href="{project['repo_url']}" class="project-button">View Project</a>
     </div>
     """, unsafe_allow_html=True)
 
