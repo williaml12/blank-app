@@ -67,7 +67,7 @@ projects = [
         "description": "Designed and developed a personal portfolio website to showcase projects and skills.",
         "technologies": "HTML, CSS, JavaScript, Streamlit",
         "repo_url": "https://github.com/yourusername/portfolio",
-        "theme": "project-1"
+        "theme": "project-5"
     },
     {
         "title": "E-commerce Platform",
@@ -75,7 +75,7 @@ projects = [
         "description": "Built a full-featured e-commerce platform with user authentication, product listings, and payment integration.",
         "technologies": "Django, React, Stripe",
         "repo_url": "https://github.com/yourusername/ecommerce",
-        "theme": "project-2"
+        "theme": "project-6"
     },
     {
         "title": "Weather Dashboard",
@@ -83,7 +83,7 @@ projects = [
         "description": "Created a real-time weather dashboard using APIs to fetch and display weather data.",
         "technologies": "JavaScript, React, OpenWeatherMap API",
         "repo_url": "https://github.com/yourusername/weather-dashboard",
-        "theme": "project-3"
+        "theme": "project-7"
     },
     {
         "title": "Chat Application",
@@ -91,7 +91,7 @@ projects = [
         "description": "Developed a real-time chat application with user authentication and chat rooms.",
         "technologies": "Node.js, Socket.io, Express",
         "repo_url": "https://github.com/yourusername/chat-app",
-        "theme": "project-4"
+        "theme": "project-8"
     }
 ]
 
@@ -113,6 +113,10 @@ st.markdown("""
     .project-2 { background-color: #ddffdd; }
     .project-3 { background-color: #ddddff; }
     .project-4 { background-color: #ffffdd; }
+    .project-5 { background-color: #ffddff; }
+    .project-6 { background-color: #ddffff; }
+    .project-7 { background-color: #ffd700; }
+    .project-8 { background-color: #ff6347; }
     .project-title {
         font-size: 24px;
         font-weight: bold;
@@ -166,7 +170,6 @@ columns = st.columns(num_columns)
 for i, project in enumerate(projects):
     with columns[i % num_columns]:
         display_project(project)
-
 
 
 
