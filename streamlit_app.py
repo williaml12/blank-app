@@ -59,76 +59,19 @@ projects = [
     }
 ]
 
-# Custom CSS styles
-st.markdown("""
-    <style>
-    .project-card {
-        background-color: #f9f9f9;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-    }
-    .project-card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    }
-    .project-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 10px;
-    }
-    .project-description {
-        font-size: 18px;
-        margin-top: 10px;
-    }
-    .project-technologies {
-        font-size: 16px;
-        margin-top: 10px;
-        color: #555;
-    }
-    .project-button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-top: 10px;
-        padding: 10px 24px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .project-button:hover {
-        background-color: #45a049;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-# Function to display a project card
+# Function to display a project with interactive features
 def display_project(project):
-    st.markdown(f"""
-    <div class="project-card">
-        <img src="{project['image_url']}" alt="{project['title']}" style="width:100%">
-        <div class="project-title">{project['title']}</div>
-        <div class="project-description">{project['description']}</div>
-        <div class="project-technologies"><strong>Technologies Used</strong>: {project['technologies']}</div>
-        <a href="{project['repo_url']}" class="project-button">View Repository</a>
-    </div>
-    """, unsafe_allow_html=True)
+    st.image(project["image_url"], use_column_width=True)
+    st.markdown(f"### {project['title']}")
+    st.markdown(f"**Description**: {project['description']}")
+    st.markdown(f"**Technologies Used**: {project['technologies']}")
+    if st.button(f"View {project['title']} Repository", key=project["title"]):
+        st.write(f"Redirecting to: {project['repo_url']}")
+        st.experimental_set_query_params(url=project["repo_url"])
 
 # Display projects in a grid
-num_columns = 2  # Number of columns in the grid
+num_columns = 3  # Number of columns in the grid
 columns = st.columns(num_columns)
-
-for i, project in enumerate(projects):
-    with columns[i % num_columns]:
-        display_project(project)
-
-# Add more projects and adjust the layout as needed
-
 
 for i, project in enumerate(projects):
     with columns[i % num_columns]:
