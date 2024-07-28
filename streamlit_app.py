@@ -32,46 +32,95 @@ projects = [
     {
         "title": "AI Chatbot",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Developed an AI chatbot using natural language processing and machine learning techniques.",
+        "technologies": "Python, TensorFlow, NLTK, Flask",
         "repo_url": "https://github.com/yourusername/aichatbot"
     },
     {
         "title": "Web Scraper",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Built a web scraper to collect data from multiple websites for analysis.",
+        "technologies": "Python, BeautifulSoup, Selenium",
         "repo_url": "https://github.com/yourusername/webscraper"
     },
     {
         "title": "Data Visualization",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Created interactive data visualizations to display trends and insights.",
+        "technologies": "Python, Pandas, Matplotlib, Plotly",
         "repo_url": "https://github.com/yourusername/dataviz"
     },
     {
         "title": "Mobile App Development",
         "image_url": "https://via.placeholder.com/150",
+        "description": "Developed a mobile app for tracking fitness activities.",
+        "technologies": "Java, Android Studio, Firebase",
         "repo_url": "https://github.com/yourusername/fitnessapp"
     }
 ]
 
-# Function to display a project with interactive features
+# Custom CSS styles
+st.markdown("""
+    <style>
+    .project-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
+    .project-card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    .project-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .project-description {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .project-technologies {
+        font-size: 16px;
+        margin-top: 10px;
+        color: #555;
+    }
+    .project-button {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 10px 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .project-button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# Function to display a project card
 def display_project(project):
-    st.image(project["image_url"], use_column_width=True)
-    st.markdown(f"<h3 style='text-align: center; font-family: Arial, sans-serif; font-size: 16px;'>{project['title']}</h3>", unsafe_allow_html=True)
-    
-    button_key = f"button-{project['title']}"
-    button_html = f"""
-    <div style="display: flex; justify-content: center;">
-        <button id="{button_key}" style="padding: 0.5em; font-size: 1em; border-radius: 5px; border: none; background-color: #4CAF50; color: white; cursor: pointer;">
-            View Repository
-        </button>
+    st.markdown(f"""
+    <div class="project-card">
+        <img src="{project['image_url']}" alt="{project['title']}" style="width:100%; border-radius: 10px;">
+        <div class="project-title">{project['title']}</div>
+        <div class="project-description">{project['description']}</div>
+        <div class="project-technologies"><strong>Technologies Used</strong>: {project['technologies']}</div>
+        <a href="{project['repo_url']}" class="project-button" target="_blank">View Repository</a>
     </div>
-    """
-    st.markdown(button_html, unsafe_allow_html=True)
-    
-    # if st.button("", key=button_key):
-    #     st.write(f"Redirecting to: {project['repo_url']}")
-    #     st.experimental_set_query_params(url=project["repo_url"])
+    """, unsafe_allow_html=True)
 
 # Display projects in a grid
-num_columns = 3  # Number of columns in the grid
+num_columns = 2  # Number of columns in the grid
 columns = st.columns(num_columns)
 
 for i, project in enumerate(projects):
