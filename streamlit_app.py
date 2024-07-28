@@ -55,8 +55,6 @@ projects = [
 def display_project(project):
     st.image(project["image_url"], use_column_width=True)
     st.markdown(f"### {project['title']}")
-    st.markdown(f"**Description**: {project['description']}")
-    st.markdown(f"**Technologies Used**: {project['technologies']}")
     if st.button(f"View {project['title']} Repository", key=project["title"]):
         st.write(f"Redirecting to: {project['repo_url']}")
         st.experimental_set_query_params(url=project["repo_url"])
