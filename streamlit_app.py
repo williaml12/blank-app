@@ -76,6 +76,22 @@ projects = [
         "technologies": "Django, React, Stripe",
         "repo_url": "https://github.com/yourusername/ecommerce",
         "theme": "project-2"
+    },
+    {
+        "title": "Weather Dashboard",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Created a real-time weather dashboard using APIs to fetch and display weather data.",
+        "technologies": "JavaScript, React, OpenWeatherMap API",
+        "repo_url": "https://github.com/yourusername/weather-dashboard",
+        "theme": "project-3"
+    },
+    {
+        "title": "Chat Application",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Developed a real-time chat application with user authentication and chat rooms.",
+        "technologies": "Node.js, Socket.io, Express",
+        "repo_url": "https://github.com/yourusername/chat-app",
+        "theme": "project-4"
     }
 ]
 
@@ -110,10 +126,6 @@ st.markdown("""
         font-size: 16px;
         margin-top: 10px;
         color: #555;
-    }
-    .project-link {
-        font-size: 16px;
-        margin-top: 10px;
     }
     .project-button {
         background-color: #007bff;
@@ -155,7 +167,6 @@ for i, project in enumerate(projects):
     with columns[i % num_columns]:
         display_project(project)
 
-# Add more projects and adjust the layout as needed
 
 
 
