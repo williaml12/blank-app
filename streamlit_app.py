@@ -59,13 +59,15 @@ projects = [
     }
 ]
 
-# Function to display a project
+# Function to display a project with interactive features
 def display_project(project):
     st.image(project["image_url"], use_column_width=True)
     st.markdown(f"### {project['title']}")
     st.markdown(f"**Description**: {project['description']}")
     st.markdown(f"**Technologies Used**: {project['technologies']}")
-    st.markdown(f"[GitHub Repository]({project['repo_url']})")
+    if st.button(f"View {project['title']} Repository", key=project["title"]):
+        st.write(f"Redirecting to: {project['repo_url']}")
+        st.experimental_set_query_params(url=project["repo_url"])
 
 # Display projects in a grid
 num_columns = 3  # Number of columns in the grid
@@ -76,5 +78,6 @@ for i, project in enumerate(projects):
         display_project(project)
 
 # Add more projects and adjust the layout as needed
+
 
 
