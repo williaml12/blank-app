@@ -170,6 +170,3 @@ columns = st.columns(num_columns)
 for i, project in enumerate(projects):
     with columns[i % num_columns]:
         display_project(project)
-
-
-
