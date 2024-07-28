@@ -32,29 +32,21 @@ projects = [
     {
         "title": "AI Chatbot",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Developed an AI chatbot using natural language processing and machine learning techniques.",
-        "technologies": "Python, TensorFlow, NLTK, Flask",
         "repo_url": "https://github.com/yourusername/aichatbot"
     },
     {
         "title": "Web Scraper",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Built a web scraper to collect data from multiple websites for analysis.",
-        "technologies": "Python, BeautifulSoup, Selenium",
         "repo_url": "https://github.com/yourusername/webscraper"
     },
     {
         "title": "Data Visualization",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Created interactive data visualizations to display trends and insights.",
-        "technologies": "Python, Pandas, Matplotlib, Plotly",
         "repo_url": "https://github.com/yourusername/dataviz"
     },
     {
         "title": "Mobile App Development",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Developed a mobile app for tracking fitness activities.",
-        "technologies": "Java, Android Studio, Firebase",
         "repo_url": "https://github.com/yourusername/fitnessapp"
     }
 ]
