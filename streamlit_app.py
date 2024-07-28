@@ -34,45 +34,69 @@ projects = [
         "image_url": "https://via.placeholder.com/150",
         "description": "Developed an AI chatbot using natural language processing and machine learning techniques.",
         "technologies": "Python, TensorFlow, NLTK, Flask",
-        "repo_url": "https://github.com/yourusername/aichatbot"
+        "repo_url": "https://github.com/yourusername/aichatbot",
+        "theme": "project-1"
     },
     {
         "title": "Web Scraper",
         "image_url": "https://via.placeholder.com/150",
         "description": "Built a web scraper to collect data from multiple websites for analysis.",
         "technologies": "Python, BeautifulSoup, Selenium",
-        "repo_url": "https://github.com/yourusername/webscraper"
+        "repo_url": "https://github.com/yourusername/webscraper",
+        "theme": "project-2"
     },
     {
         "title": "Data Visualization",
         "image_url": "https://via.placeholder.com/150",
         "description": "Created interactive data visualizations to display trends and insights.",
         "technologies": "Python, Pandas, Matplotlib, Plotly",
-        "repo_url": "https://github.com/yourusername/dataviz"
+        "repo_url": "https://github.com/yourusername/dataviz",
+        "theme": "project-3"
     },
     {
         "title": "Mobile App Development",
         "image_url": "https://via.placeholder.com/150",
         "description": "Developed a mobile app for tracking fitness activities.",
         "technologies": "Java, Android Studio, Firebase",
-        "repo_url": "https://github.com/yourusername/fitnessapp"
+        "repo_url": "https://github.com/yourusername/fitnessapp",
+        "theme": "project-4"
+    },
+    {
+        "title": "Portfolio Website",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Designed and developed a personal portfolio website to showcase projects and skills.",
+        "technologies": "HTML, CSS, JavaScript, Streamlit",
+        "repo_url": "https://github.com/yourusername/portfolio",
+        "theme": "project-1"
+    },
+    {
+        "title": "E-commerce Platform",
+        "image_url": "https://via.placeholder.com/150",
+        "description": "Built a full-featured e-commerce platform with user authentication, product listings, and payment integration.",
+        "technologies": "Django, React, Stripe",
+        "repo_url": "https://github.com/yourusername/ecommerce",
+        "theme": "project-2"
     }
 ]
 
-# Custom CSS styles
+# CSS styles for themed projects
 st.markdown("""
     <style>
-    .project-card {
-        background-color: #fff;
-        border-radius: 10px;
+    .project-container {
+        margin-top: 20px;
         padding: 20px;
-        margin: 10px;
+        border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
+        text-align: center;
     }
-    .project-card:hover {
+    .project-container:hover {
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
+    .project-1 { background-color: #ffdddd; }
+    .project-2 { background-color: #ddffdd; }
+    .project-3 { background-color: #ddddff; }
+    .project-4 { background-color: #ffffdd; }
     .project-title {
         font-size: 24px;
         font-weight: bold;
@@ -86,6 +110,10 @@ st.markdown("""
         font-size: 16px;
         margin-top: 10px;
         color: #555;
+    }
+    .project-link {
+        font-size: 16px;
+        margin-top: 10px;
     }
     .project-button {
         background-color: #007bff;
@@ -110,7 +138,7 @@ st.markdown("""
 # Function to display a project card
 def display_project(project):
     st.markdown(f"""
-    <div class="project-card">
+    <div class="project-container {project['theme']}">
         <img src="{project['image_url']}" alt="{project['title']}" style="width:100%; border-radius: 10px;">
         <div class="project-title">{project['title']}</div>
         <div class="project-description">{project['description']}</div>
