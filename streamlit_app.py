@@ -32,29 +32,21 @@ projects = [
     {
         "title": "AI Chatbot",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Developed an AI chatbot using natural language processing and machine learning techniques.",
-        "technologies": "Python, TensorFlow, NLTK, Flask",
         "repo_url": "https://github.com/yourusername/aichatbot"
     },
     {
         "title": "Web Scraper",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Built a web scraper to collect data from multiple websites for analysis.",
-        "technologies": "Python, BeautifulSoup, Selenium",
         "repo_url": "https://github.com/yourusername/webscraper"
     },
     {
         "title": "Data Visualization",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Created interactive data visualizations to display trends and insights.",
-        "technologies": "Python, Pandas, Matplotlib, Plotly",
         "repo_url": "https://github.com/yourusername/dataviz"
     },
     {
         "title": "Mobile App Development",
         "image_url": "https://via.placeholder.com/150",
-        "description": "Developed a mobile app for tracking fitness activities.",
-        "technologies": "Java, Android Studio, Firebase",
         "repo_url": "https://github.com/yourusername/fitnessapp"
     }
 ]
@@ -113,14 +105,12 @@ def display_project(project):
     <div class="project-card">
         <img src="{project['image_url']}" alt="{project['title']}" style="width:100%">
         <div class="project-title">{project['title']}</div>
-        <div class="project-description">{project['description']}</div>
-        <div class="project-technologies"><strong>Technologies Used</strong>: {project['technologies']}</div>
         <a href="{project['repo_url']}" class="project-button">View Repository</a>
     </div>
     """, unsafe_allow_html=True)
 
 # Display projects in a grid
-num_columns = 2  # Number of columns in the grid
+num_columns = 3  # Number of columns in the grid
 columns = st.columns(num_columns)
 
 for i, project in enumerate(projects):
