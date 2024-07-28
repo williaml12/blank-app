@@ -64,7 +64,7 @@ def display_project(project):
         </button>
     </div>
     """
-    st.markdown(button_html, unsafe_allow_html=True)
+    # st.markdown(button_html, unsafe_allow_html=True)
     
     # if st.button("", key=button_key):
     #     st.write(f"Redirecting to: {project['repo_url']}")
