@@ -60,11 +60,11 @@ def display_project(project):
     button_html = f"""
     <div style="display: flex; justify-content: center;">
         <button id="{button_key}" style="padding: 0.5em; font-size: 1em; border-radius: 5px; border: none; background-color: #4CAF50; color: white; cursor: pointer;">
-            View {project['title']} Repository
+            View Repository
         </button>
     </div>
     """
-    # st.markdown(button_html, unsafe_allow_html=True)
+    st.markdown(button_html, unsafe_allow_html=True)
     
     # if st.button("", key=button_key):
     #     st.write(f"Redirecting to: {project['repo_url']}")
