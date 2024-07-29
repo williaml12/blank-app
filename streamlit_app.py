@@ -6,7 +6,7 @@ st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 
- st.write('---')
+st.write('---')
 
 # import streamlit as st
 
@@ -27,7 +27,7 @@ st.markdown(markdown_link)
 st.write("Using HTML:")
 st.markdown(html_link, unsafe_allow_html=True)
 
- st.write('---')
+st.write('---')
 
 # import streamlit as st
 
