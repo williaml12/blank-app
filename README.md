@@ -17,3 +17,12 @@ A simple Streamlit app template for you to modify!
    ```
    $ streamlit run streamlit_app.py
    ```
+## Run the application
+
+To run the portfolio website locally, follow these steps:
+
+1. Clone this repository.
+2. install required libraries from requirements.txt
+3. Feel free to modify it to your needs!
+
+Or run it here https://app-template.streamlit.app/
